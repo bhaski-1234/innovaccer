@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  api:
+    build: 
+      dockerfile: Dockerfile.dev
+      context: .
+    command: ["flask", "run", "--host=0.0.0.0"]
+    volumes:
+      - ./api:/backend
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=app.py
+    ports:
+      - '5000:5000'
+  
+
+
+
+ 
