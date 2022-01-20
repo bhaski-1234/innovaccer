@@ -11,15 +11,14 @@ before_install:
 script:
    - docker run stephengrider/docker-react python -m pytest
 
+
 deploy:
-   provider: elasticbeanstalk
-   region: "us-east-2"
-   app: "incare-flask-react"
-   env: "Incareflaskreact-env"
-   bucket_name: "elasticbeanstalk-us-east-2-541445664516"
-   bucket_path: "incare-flask-react"
-   on:
-     branch: main
-   access_key_id: $AWS_ACCESS_KEY
-   secret_access_key: 
-     secure: "$AWS_SECRET_KEY"
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: "$AWS_ACCESS_KEY"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+  region: "us-east-2"
+  app: "incare-flask-react"
+  env: "Incareflaskreact-env"
+  bucket_name:  "elasticbeanstalk-us-east-2-541445664516"
