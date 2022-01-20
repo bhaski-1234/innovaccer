@@ -1,8 +1,7 @@
 FROM python:3.7
-RUN mkdir /backend
-WORKDIR /backend
-COPY api/requirements.txt /backend/requirements.txt
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
-COPY . .
+COPY ./api /app
+WORKDIR /app
+RUN pip install -r requirements.txt
 EXPOSE 5000
+CMD ["python3","app.py"]
+
