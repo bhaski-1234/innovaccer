@@ -5,7 +5,7 @@ from market.models import Patients,Doctor, Prescription
 from market.forms import RegisterForm, LoginForm,AdminLoginForm
 from market import db
 from flask_login import login_user,logout_user,login_required,current_user
-from market.processor import chatbot_response
+# from market.processor import chatbot_response
 from functools import wraps
 # from processor import chatbot_response
 # imports for PyJWT authentication
@@ -15,19 +15,19 @@ app.config['SECRET_KEY'] = 'keyissecured12123'
 token = ""
 
 
-@app.route('/index', methods=["GET", "POST"])
-def index():
-    return render_template('index.html', **locals())
+# @app.route('/index', methods=["GET", "POST"])
+# def index():
+#     return render_template('index.html', **locals())
     
-@app.route('/chatbot', methods=["GET", "POST"])
-def chatbotResponse():
+# @app.route('/chatbot', methods=["GET", "POST"])
+# def chatbotResponse():
 
-    if request.method == 'POST':
-        the_question = request.form['question']
+#     if request.method == 'POST':
+#         the_question = request.form['question']
 
-        response = chatbot_response(the_question)
+#         response = chatbot_response(the_question)
 
-    return jsonify({"response": response })
+#     return jsonify({"response": response })
 
 @app.route("/cards")
 def cards():
